@@ -144,10 +144,12 @@ class ATM {
 
 public class Main {
     public static void main(String[] args) {
+        // Create a map of bank accounts and populate it with some example accounts
         Map<String, BankAccount> accounts = new HashMap<>();
         accounts.put("123456", new BankAccount("123456", "1234", 1000.0));
         accounts.put("987654", new BankAccount("987654", "9876", 2000.0));
 
+        // Initialize the ATM with the map of accounts
         ATM atm = new ATM(accounts);
 
         Scanner scanner = new Scanner(System.in);
@@ -155,12 +157,14 @@ public class Main {
         boolean authenticated = false;
 
         while (!authenticated) {
+            // Prompt the user for account number and PIN
             System.out.print("Enter account number: ");
             String accountNumber = scanner.next();
 
             System.out.print("Enter PIN: ");
             String pin = scanner.next();
 
+            // Authenticate the user
             authenticated = atm.authenticate(accountNumber, pin);
 
             if (!authenticated) {
@@ -168,6 +172,7 @@ public class Main {
             }
         }
 
+        // If authentication is successful, allow the user to perform transactions
         while (true) {
             try {
                 atm.displayMenu();
