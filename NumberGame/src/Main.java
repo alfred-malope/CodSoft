@@ -16,7 +16,7 @@ public class Main {
 
             while (!validInput) {
                 try {
-                    System.out.print("Guess a number between 1 and 100:");
+                    System.out.print("Guess a number between 1 and 100: ");
                     userGuess = scanner.nextInt();
 
                     // Check if userGuess is within the valid range (1 to 100)
